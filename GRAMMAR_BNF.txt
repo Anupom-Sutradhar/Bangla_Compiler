@@ -1,0 +1,49 @@
+Bangla Programming Language - Backus-Naur Form (BNF)
+====================================================
+
+<program>       ::= <statement-list>
+<statement-list>::= <statement> <statement-list> | ε
+
+<statement>     ::= <var-decl>
+                  | <assignment>
+                  | <print-stmt>
+                  | <if-stmt>
+                  | <while-stmt>
+                  | <block>
+
+<var-decl>      ::= <type> <identifier> "=" <expression> ";"
+<type>          ::= "সংখ্যা" | "দশমিক"
+<assignment>    ::= <identifier> "=" <expression> ";"
+<print-stmt>    ::= "দেখাও" "(" <expression> ")" ";"
+
+<if-stmt>       ::= "যদি" "(" <expression> ")" <block> <else-part>
+<else-part>     ::= "নাহলে" <block> | ε
+<while-stmt>    ::= "যতক্ষণ" "(" <expression> ")" <block>
+<block>         ::= "{" <statement-list> "}"
+
+<expression>    ::= <equality>
+<equality>      ::= <comparison> <equality-tail>
+<equality-tail> ::= ("==" | "!=") <comparison> <equality-tail> | ε
+
+<comparison>    ::= <term> <comparison-tail>
+<comparison-tail> ::= (">" | ">=" | "<" | "<=") <term> <comparison-tail> | ε
+
+<term>          ::= <factor> <term-tail>
+<term-tail>     ::= ("+" | "-") <factor> <term-tail> | ε
+
+<factor>        ::= <unary> <factor-tail>
+<factor-tail>   ::= ("*" | "/" | "%") <unary> <factor-tail> | ε
+
+<unary>         ::= ("+" | "-") <unary> | <primary>
+<primary>       ::= <number> | <identifier> | "(" <expression> ")"
+
+<number>        ::= integer or decimal literal using ASCII or Bangla digits
+<identifier>    ::= Unicode letter or "_", followed by Unicode letters/digits/marks/"_"
+
+Operator precedence, highest to lowest:
+1. Parentheses
+2. Unary +, -
+3. *, /, %
+4. +, -
+5. >, >=, <, <=
+6. ==, !=
