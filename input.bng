@@ -1,0 +1,29 @@
+# Bangla toy-language sample demonstrating every mandatory language feature.
+# Two types: সংখ্যা (int), দশমিক (double)
+
+সংখ্যা x = ১;
+দশমিক হার = ২.৫;
+
+# Arithmetic precedence: multiplication happens before addition.
+সংখ্যা ফল = x + ২ * ৩;
+দেখাও(ফল);
+
+# Assignment.
+x = ফল + ১;
+
+# IF-ELSE.
+যদি (x >= ৮) {
+    দেখাও(x);
+} নাহলে {
+    দেখাও(হার);
+}
+
+# WHILE loop.
+যতক্ষণ (x < ১২) {
+    x = x + ১;
+    দেখাও(x);
+}
+
+# int can safely promote to double.
+হার = x + ০.৫;
+দেখাও(হার);
